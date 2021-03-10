@@ -13,8 +13,8 @@
     }
 
     function setEventListeners() {
-        let next = d.getElementsByClassName("carousel-button-next");
-        let prev = d.getElementsByClassName("carousel-button-prev");
+        let next = d.getElementsByClassName("carousel-button-next")[0];
+        let prev = d.getElementsByClassName("carousel-button-prev")[0];
 
         next.addEventListener('click', moveNext);
         prev.addEventListener('click', movePrev);
@@ -24,8 +24,10 @@
         if (!moving) {
             if (slide === (totalItems - 1)) {
                 slide = 0;
+                console.log('moving next');
             } else {
                 slide++;
+                console.log('moving next');
             }
 
             moveCarouselTo(slide);
@@ -36,8 +38,10 @@
         if (!moving) {
             if (slide === 0) {
                 slide = (totalItems - 1);
+                console.log('moving prev');
             } else {
                 slide--;
+                console.log('moving prev');
             }
 
             moveCarouselTo(slide);
@@ -73,6 +77,9 @@
                     oldPrevious = (totalItems - 2);
                     oldNext = (slide + 1);
                 }
+
+                items[oldPrevious].className = itemClassName;
+                items[oldNext].className = itemClassName;
 
                 items[newPrevious].className = itemClassName + " prev";
                 items[slide].className = itemClassName + " active";

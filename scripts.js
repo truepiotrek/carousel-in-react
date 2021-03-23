@@ -77,6 +77,9 @@
                     oldPrevious = (totalItems - 2);
                     oldNext = (slide + 1);
                 }
+                if (newNext >= totalItems) {
+                    newNext = 0;
+                }
 
                 items[oldPrevious].className = itemClassName;
                 items[oldNext].className = itemClassName;

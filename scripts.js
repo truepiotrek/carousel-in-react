@@ -66,7 +66,7 @@
             let oldPrevious = slide - 2;
             let oldNext = slide + 2;
 
-            if ((totalItems - 1) > 3) {
+            if (totalItems > 3) {
                 if (newPrevious <= 0) {
                     oldPrevious = (totalItems - 1);
                 } else if (newNext >= (totalItems - 1)) {
